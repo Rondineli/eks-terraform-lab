@@ -10,6 +10,7 @@ module "vpc" {
       region                                 = "${var.aws_region}"
       name                                   = "vpc"
       source                                 = "./vpc"
+      cluster_name                           = "${var.eks-cluster-name}"
 }
 
 module "policy" {
