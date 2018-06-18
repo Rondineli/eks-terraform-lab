@@ -1,7 +1,8 @@
 ### How to run
 
+P.s1: Make sure you have terraform installed and it is in your $PATH
+P.s2: Run it will coast money at your aws account, it is your risk and your money, not my fault if you didn't read this.
+P.s3: Do whatever you want
 ```
-terraform init
-terraform get
-terraform plan -var aws_access_key=$AWS_ACCESS_KEY_ID -var aws_region=$AWS_REGION -var aws_secret_key=$AWS_SECRET_ACCESS_KEY' -var key_name=<my key name> -var eks-cluster-name=<my eks name>
+./run.sh
 ```
