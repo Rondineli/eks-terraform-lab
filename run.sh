@@ -22,11 +22,11 @@ echo "importing modules..."
 terraform get
 
 echo "running plann..."
-terraform plan -out my_plan -var aws_access_key=$AWS_ACCESS_KEY_ID -var aws_region=$AWS_REGION -var aws_secret_key=$AWS_SECRET_ACCESS_KEY -var eks-cluster-name=$CLUSTER_NAME -var key_name=$KEY_PAIR_NAME
+terraform plan -out my_plan -var aws_access_key=$AWS_ACCESS_KEY_ID -var aws_region=$AWS_REGION -var aws_secret_key=$AWS_SECRET_ACCESS_KEY -var eks-cluster-name=$CLUSTER_NAME -var key_name=$KEY_NAME
 
 
 echo "Applying, it maybe will aks you to proceed"
-terraform apply -var aws_access_key=$AWS_ACCESS_KEY_ID -var aws_region=$AWS_REGION -var aws_secret_key=$AWS_SECRET_ACCESS_KEY -var eks-cluster-name=$CLUSTER_NAME -var key_name=$KEY_PAIR_NAME
+terraform apply -var aws_access_key=$AWS_ACCESS_KEY_ID -var aws_region=$AWS_REGION -var aws_secret_key=$AWS_SECRET_ACCESS_KEY -var eks-cluster-name=$CLUSTER_NAME -var key_name=$KEY_NAME
 
 
 mkdir $HOME/.eks_tools

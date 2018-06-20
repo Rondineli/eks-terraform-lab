@@ -2,7 +2,7 @@ resource "aws_launch_configuration" "eks-kubelets-workers-node" {
   associate_public_ip_address = true
   iam_instance_profile        = "${var.instance_profile_name}"
   image_id                    = "${data.aws_ami.eks-worker.id}"
-  instance_type               = "m3.medium"
+  instance_type               = "t2.xlarge"
   name_prefix                 = "eks-kubelets-"
   security_groups             = ["${var.sg_workers_id}"]
   user_data                   = "${module.user_data.rendered}"

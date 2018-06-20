@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: quickstart-cloudera
+  labels:
+    run: quickstart.cloudera
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8080
+    name: http
+    protocol: TCP
+    targetPort: 80 
+ 
+  - port: 8888
+    name: hueui
+    protocol: TCP
+    targetPort: 8888
+
+  - port: 7180
+    name: clouderamanager
+    protocol: TCP
+    targetPort: 7180
+
+  selector:
+    run: quickstart.cloudera
+
+

@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quickstart.cloudera
+  #labels: quickstart.cloudera
+spec:
+  selector:
+    matchLabels:
+      run: quickstart.cloudera
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: quickstart.cloudera
+    spec:
+      hostname: quickstart
+      subdomain: cloudera
+      hostAliases:
+      - ip: "127.0.0.1"
+        hostnames:
+        - "quickstart.cloudera"
+      containers:
+      - name: quickstart-cloudera
+        image: cloudera/quickstart:latest
+        env:
+        - name: "HOSTNAME"
+          value: "quickstart.cloudera" 
+        ports:
+        - containerPort: 80
+          name: default-app
+        - containerPort: 8888
+          name: hue-ui
+        - containerPort: 7180
+          name: manager
+        securityContext:
+          privileged: true
+          allowPrivilegeEscalation: true
+        command: ["/bin/bash", "-c", "--"]
+        args: ["/usr/bin/docker-quickstart && /home/cloudera/cloudera-manager --express && while true; do sleep 3600; done"]

@@ -6,3 +6,9 @@ P.s3: Do whatever you want
 ```
 ./run.sh
 ```
+
+## To tun cloudera cluster
+```
+kubectl create -f eks_templates/service_test.yml
+kubectl create -f eks_templates/pod_test.yml
+```
